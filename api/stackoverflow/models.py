@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -31,3 +32,29 @@ class Answer(models.Model):
 
     def __str__(self):
         return self.body
+
+
+def make_fake_data(num_questions=500, answers_per_question=5, delete_all=True):
+    from faker import Faker
+    from random import randint, random, choice
+    fake = Faker()
+
+    if delete_all:
+        Question.objects.all().delete()
+        Answer.objects.all().delete()
+
+    for _ in range(num_questions):
+        q = Question(title=fake.bs().title(), body=fake.paragraph(nb_sentences=5))
+        q.created_on = fake.date_time_this_year()
+        q.modified_on = fake.date_time_between(start_date=q.created_on)
+        q.save()
+
+        for __ in range(randint(0, answers_per_question)):
+            a = Answer(body=fake.paragraph(nb_sentences=2), question=q)
+            a.created_on = fake.date_time_between(start_date=q.created_on)
+            q.modified_on = fake.date_time_between(start_date=a.created_on)
+            a.save()
+
+        if random() < 0.5 and q.answers.count() > 0:
+            q.accepted_answer = choice(q.answers.all())
+            q.save()
