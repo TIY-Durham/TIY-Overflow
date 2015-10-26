@@ -30,6 +30,7 @@
     "modernizr": "components-modernizr#~2.8.3",
     "jquery": "~2.1.4",
     "angular": "~1.4.7",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "font-awesome": "~4.4.0"
   }
 }

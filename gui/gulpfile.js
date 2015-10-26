@@ -27,7 +27,7 @@ gulp.task('inject', [ 'sass' ], function(){
 
 // see: https://github.com/taptapship/wiredep#gulpjs
 gulp.task('wiredep', function(){
-  return gulp.src('./src/*.html')
+  return gulp.src([ './src/*.html', './src/main.scss' ])
     .pipe(wiredep())
     .pipe(gulp.dest('./src'));
 });
