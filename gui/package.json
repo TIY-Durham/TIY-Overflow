@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/TIY-Durham/TIY-Overflow/issues"
   },
-  "homepage": "https://github.com/TIY-Durham/TIY-Overflow#readme"
+  "homepage": "https://github.com/TIY-Durham/TIY-Overflow#readme",
+  "devDependencies": {
+    "bower": "^1.6.5",
+    "browser-sync": "^2.9.11",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-inject": "^3.0.0",
+    "gulp-sass": "^2.0.4",
+    "main-bower-files": "^2.9.0",
+    "node-sass": "^3.4.0",
+    "wiredep": "^2.2.2"
+  }
 }
