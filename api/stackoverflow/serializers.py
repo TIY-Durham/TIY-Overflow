@@ -8,11 +8,18 @@ class AnswerSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Answer
-        fields = ('id', 'body', 'created_on', 'modified_on', 'question_id', 'was_accepted')
+        fields = ('id', 'body', 'created_on', 'modified_on', 'was_accepted', 'question_id')
+
+    def create(self, validated_data):
+        validated_data['question_id'] = self.context['question_pk']
+        answer = Answer.objects.create(**validated_data)
+        return answer
 
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     accepted_answer = serializers.StringRelatedField(many=False)
+
+    # very_special_title = serializers.CharField(source='title')
 
     class Meta:
         model = Question
@@ -20,7 +27,7 @@ class QuestionSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class QuestionDetailSerializer(QuestionSerializer):
-    answers = AnswerSerializer(many=True, read_only=True)
+    answers = AnswerSerializer(many=True)
 
     class Meta(QuestionSerializer.Meta):
         fields = tuple(list(QuestionSerializer.Meta.fields) + ['answers'])
