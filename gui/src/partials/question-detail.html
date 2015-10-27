@@ -1,0 +1,25 @@
+<nav class="breadcrumbs">
+  <a href="#/questions">Back to Questions</a> 
+</nav>
+
+<header>
+  <h1> {{question.title}} </h1>
+  <p>answers <big>{{question.answer_count}}</big></p>
+</header>
+
+<p>
+{{question.body}}
+</p>
+
+<footer>
+  Asked <!-- by {{question.asker}} -->
+  on {{question.created_on | date}}
+</footer>
+
+<section ng-repeat="answer in question.answers">
+  <p>{{answer.body}}</p>
+  <footer>
+    Suggested <!-- by {{answer.answerer}} -->
+    on {{answer.created_on | date}}
+  </footer>
+</section>

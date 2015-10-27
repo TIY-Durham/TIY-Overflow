@@ -27,7 +27,7 @@ gulp.task('inject', [ 'sass' ], function(){
 
 // see: https://github.com/taptapship/wiredep#gulpjs
 gulp.task('wiredep', function(){
-  return gulp.src('./src/*.html')
+  return gulp.src([ './src/*.html', './src/main.scss' ])
     .pipe(wiredep())
     .pipe(gulp.dest('./src'));
 });
@@ -38,7 +38,8 @@ gulp.task('serve', [ 'inject', 'sass' ], function(){
     server: {
       baseDir: './src',
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'bower_components',
+        '/apis': 'apis'
       },
       middleware: function(request, response, next){
         console.log('Hello from middleware!');
