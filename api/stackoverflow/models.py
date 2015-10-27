@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
-
+from django.utils.timezone import make_aware
 
 # Create your models here.
 
@@ -57,8 +57,8 @@ def make_fake_data(num_questions=500, answers_per_question=5, delete_all=True):
         for __ in range(randint(0, answers_per_question)):
             a = Answer(body=fake.paragraph(nb_sentences=2), question=q)
             a.save()
-            a.created_on = fake.date_time_between(start_date=q.created_on)
-            a.modified_on = fake.date_time_between(start_date=a.created_on)
+            a.created_on = make_aware(fake.date_time_between(start_date=q.created_on))
+            a.modified_on = make_aware(fake.date_time_between(start_date=a.created_on))
             a.save()
 
         if random() < 0.5 and q.answers.count() > 0:

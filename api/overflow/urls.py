@@ -35,4 +35,5 @@ urlpatterns = [
     url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
+    url(r'est/', views.set_timezone_eastern),
 ]

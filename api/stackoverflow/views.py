@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions
+from django.http import HttpResponse
 
 from .models import Question, Answer
 from .serializers import QuestionSerializer, QuestionDetailSerializer, AnswerSerializer, UserSerializer
@@ -53,3 +54,9 @@ class AnswerViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+
+def set_timezone_eastern(request):
+    request.session['django_timezone'] = 'US/Eastern'
+    return HttpResponse('Timeznoe set to eatern')
