@@ -1,6 +1,6 @@
 ;(function(){
   angular.module('TIY-Overflow', [ 'ngRoute' ], function($routeProvider){
-    var BASE_URL = '/apis/django';
+    var BASE_URL = 'http://192.168.254.120:8000/api';
 
     $routeProvider
       .when('/', {
