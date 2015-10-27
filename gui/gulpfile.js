@@ -38,7 +38,8 @@ gulp.task('serve', [ 'inject', 'sass' ], function(){
     server: {
       baseDir: './src',
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'bower_components',
+        '/apis': 'apis'
       },
       middleware: function(request, response, next){
         console.log('Hello from middleware!');
