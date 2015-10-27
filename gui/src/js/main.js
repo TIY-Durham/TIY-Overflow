@@ -20,6 +20,20 @@
           $scope.question = { };
 
           $scope.createQuestion = function(){
+            $http.post(BASE_URL + '/questions/', $scope.question)
+              .then(function(response){ // success
+                /** @jamesmallen says: response.data will be:
+                 *  - String URL to `question`
+                 *  - Number: `question_id`
+                 *  - Object: `question`
+                 */
+                // TODO: Do something with `response`...
+
+                // Redirect back to "questions-list.html"...
+                $location.path('/questions');
+              }, function(){ // error
+                console.log('It broke...');
+              })
           }
         }
       })
