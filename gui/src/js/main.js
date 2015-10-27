@@ -13,6 +13,9 @@
               $scope.all = response.data;
             });
         } ],
+      }) // END /questions
+      .when('/questions/new', {
+        templateUrl: 'partials/question-form.html',
       })
       .when('/questions/:question_id', {
         templateUrl: 'partials/question-detail.html',
