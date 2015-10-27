@@ -23,6 +23,8 @@ from stackoverflow import views
 router = routers.SimpleRouter()
 router.register(r'questions', views.QuestionViewSet)
 
+router.register(r'users', views.UserViewSet)
+
 questions_router = routers.NestedSimpleRouter(router, r'questions', lookup='question')
 questions_router.register(r'answers', views.AnswerViewSet)
 
@@ -31,4 +33,6 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api/', include(questions_router.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
 ]

@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -10,6 +12,7 @@ class Question(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now_add=True)
     accepted_answer = models.ForeignKey('Answer', null=True, related_name='accepted_for_question')
+    user = models.ForeignKey(User, related_name='questions')
 
     def answer_count(self):
         return self.answers.count()
@@ -23,6 +26,7 @@ class Answer(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now_add=True)
     question = models.ForeignKey('Question', related_name='answers')
+    user = models.ForeignKey(User, related_name='answers')
 
     def was_accepted(self):
         if self.accepted_for_question.count() > 0:
