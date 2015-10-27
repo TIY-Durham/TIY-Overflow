@@ -2,4 +2,16 @@
   <a href="#/questions">Back to Questions</a> 
 </nav>
 
-<h1> This will be the details for a question one day! </h1>
+<header>
+  <h1> {{question.title}} </h1>
+  <p>answers <big>{{question.answer_count}}</big></p>
+</header>
+
+<p>
+{{question.body}}
+</p>
+
+<footer>
+  Asked <!-- by {{question.asker}} -->
+  on {{question.created_on | date}}
+</footer>

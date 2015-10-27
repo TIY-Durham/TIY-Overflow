@@ -1,8 +1,11 @@
 <h1> This will be a list of questions one day! </h1>
 
+<nav class="primary">
+  <a href="#/questions/new">Ask a Question</a>
+</nav>
+
 <ul>
-  <li> <a href="#/questions/1">Link to Question 1</a>
   <li ng-repeat="question in all">
-    <a href="#/questions/1">{{question.question_title}}</a>
+    <a href="#/questions/{{question.id}}">{{question.title}}</a>
   </li>
 </ul>
