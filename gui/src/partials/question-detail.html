@@ -15,3 +15,11 @@
   Asked <!-- by {{question.asker}} -->
   on {{question.created_on | date}}
 </footer>
+
+<section ng-repeat="answer in question.answers">
+  <p>{{answer.body}}</p>
+  <footer>
+    Suggested <!-- by {{answer.answerer}} -->
+    on {{answer.created_on | date}}
+  </footer>
+</section>
