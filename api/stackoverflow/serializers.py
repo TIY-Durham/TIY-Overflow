@@ -38,7 +38,14 @@ class QuestionDetailSerializer(QuestionSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     questions = QuestionSerializer(many=True, read_only=True)
     answers = AnswerSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = User
-        fields = ('username', 'questions', 'answers')
+        fields = ('username', 'questions', 'answers', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = super().create(validated_data)
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
