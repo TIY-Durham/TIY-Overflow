@@ -23,6 +23,9 @@
               $http.defaults.headers.common.Authorization = "Basic " + btoa(
                 login.user.username + ':' + login.user.password
               );
+
+              // TODO: Log OUT with: `$http.defaults.headers.common.Authorization = undefined`
+              // TODO: Do something with `response.data`...?
             })
 
             // TODO: Maybe store the user's login information somewhere?
