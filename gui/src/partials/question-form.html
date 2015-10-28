@@ -1,13 +1,13 @@
-<form ng-submit="createQuestion($form)">
-  <fieldset>
+<form class="pure-form pure-form-aligned" ng-submit="createQuestion($form)">
+  <fieldset class="pure-control-group">
     <label for="new-question-title">Title</label>
     <input type="text" id="new-question-title" ng-model="question.title">
   </fieldset>
-  <fieldset>
+  <fieldset class="pure-control-group">
     <label for="new-question-body">Body</label>
     <textarea id="new-question-body" ng-model="question.body"></textarea>
   </fieldset>
-  <footer>
+  <footer class="pure-controls">
     <a href="#/questions">cancel</a>
     <button type="submit">Ask a question...</button>
   </footer>
