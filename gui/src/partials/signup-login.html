@@ -1,0 +1,27 @@
+<nav class="tabs">
+  <a href="#/login" class="pure-button" ng-class="{ 'pure-button-primary': login }">Login</a>
+  <a href="#/signup" class="pure-button" ng-class="{ 'pure-button-primary': signup }">Signup</a>
+</nav><!-- .tabs -->
+<section class="panels">
+  <div ng-class="{ hidden: !login }">
+    <form name="loginForm" ng-submit="login.send(loginForm)" class="pure-form pure-form-aligned">
+      <fieldset class="pure-control-group">
+        <label for="login_username">username</label>
+        <input type="text" id="login_username" name="username" ng-model="login.user.username">
+      </fieldset>
+
+      <fieldset class="pure-control-group">
+        <label for="login_password">password</label>
+        <input type="password" id="login_password" name="password" ng-model="login.user.password">
+      </fieldset>
+
+      <fieldset class="pure-controls">
+        <button type="submit" class="pure-button pure-button-primary">Login</button>
+      </fieldset>
+    </form><!-- [name=loginForm] -->
+  </div>
+
+  <div ng-class="{ hidden: !signup }">
+    <h1> One day, a Signup Form will live here... </h1>
+  </div>
+</section><!-- .panels -->

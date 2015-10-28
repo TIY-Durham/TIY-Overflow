@@ -5,6 +5,18 @@
       .when('/', {
         redirectTo: '/questions'
       })
+      .when('/login', {
+        templateUrl: 'partials/signup-login.html',
+        controller: function($http){
+        },
+        controllerAs: 'login'
+      })
+      .when('/signup', {
+        templateUrl: 'partials/signup-login.html',
+        controller: function($http){
+        },
+        controllerAs: 'signup'
+      })
       .when('/questions', {
         templateUrl: 'partials/question-list.html',
         controller: function($http){
