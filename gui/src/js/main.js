@@ -16,6 +16,9 @@
             console.log(login.user)
             // TODO: Make a hash...? Send the hash in the `Authorization` header...
             $http.get(BASE_URL + '/whoami', {
+              headers: {
+                Authorization: "Basic " + btoa(login.user.username + ':' + login.user.password)
+              }
             })
 
             // TODO: Maybe store the user's login information somewhere?
