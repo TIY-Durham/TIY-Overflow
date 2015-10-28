@@ -30,6 +30,7 @@ questions_router.register(r'answers', views.AnswerViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/whoami', views.whoami, name='who-am-i'),
     url(r'^api/', include(router.urls)),
     url(r'^api/', include(questions_router.urls)),
     url(r'^docs/', include('rest_framework_swagger.urls')),
