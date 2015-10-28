@@ -7,12 +7,15 @@
       })
       .when('/questions', {
         templateUrl: 'partials/question-list.html',
-        controller: [ '$scope', '$http', function($scope, $http){
+        controller: function($http){
+          var questions = this;
+
           $http.get(BASE_URL + '/questions')
             .then(function(response){
-              $scope.all = response.data;
+              questions.all = response.data;
             });
-        } ],
+        },
+        controllerAs: 'questions'
       }) // END /questions
       .when('/questions/new', {
         templateUrl: 'partials/question-form.html',

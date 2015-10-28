@@ -4,8 +4,9 @@
   <a href="#/questions/new">Ask a Question</a>
 </nav>
 
-<ul>
-  <li ng-repeat="question in all">
+<ul ng-switch="questions.all.length">
+  <li ng-switch-default ng-repeat="question in questions.all">
     <a href="#/questions/{{question.id}}">{{question.title}}</a>
   </li>
+  <li ng-switch-when="0"> No one has asked a question yet! </p>
 </ul>
