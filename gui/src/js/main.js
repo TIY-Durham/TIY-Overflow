@@ -8,12 +8,34 @@
       .when('/login', {
         templateUrl: 'partials/signup-login.html',
         controller: function($http){
+          var login = this;
+
+          login.user = { };
+
+          login.send = function(){
+            console.log(login.user)
+            // TODO: Send `login.user` to the API for authentication...
+            // TODO: Do something with what we get back?
+            // TODO: Maybe store the user's login information somewhere?
+            // TODO: Redirect to another view?
+          };
         },
         controllerAs: 'login'
       })
       .when('/signup', {
         templateUrl: 'partials/signup-login.html',
         controller: function($http){
+          var signup = this;
+
+          signup.user = { };
+
+          signup.send = function($form){
+            console.log(signup.user);
+            // TODO: Send `signup.user` to the API for registration...
+            // TODO: Do something with what we get back?
+            // TODO: Maybe store the user's login information somewhere...?
+            // TODO: Redirect to another view?
+          };
         },
         controllerAs: 'signup'
       })
