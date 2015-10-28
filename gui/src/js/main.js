@@ -7,15 +7,17 @@
       })
       .when('/login', {
         templateUrl: 'partials/signup-login.html',
-        controller: function($http){
+        controller: function(BASE_URL, $http){
           var login = this;
 
           login.user = { };
 
           login.send = function(){
             console.log(login.user)
-            // TODO: Send `login.user` to the API for authentication...
-            // TODO: Do something with what we get back?
+            // TODO: Make a hash...? Send the hash in the `Authorization` header...
+            $http.get(BASE_URL + '/whoami', {
+            })
+
             // TODO: Maybe store the user's login information somewhere?
             // TODO: Redirect to another view?
           };
