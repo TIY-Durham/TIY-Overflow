@@ -19,6 +19,10 @@
               headers: {
                 Authorization: "Basic " + btoa(login.user.username + ':' + login.user.password)
               }
+            }).then(function(response){
+              $http.defaults.headers.common.Authorization = "Basic " + btoa(
+                login.user.username + ':' + login.user.password
+              );
             })
 
             // TODO: Maybe store the user's login information somewhere?
