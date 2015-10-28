@@ -53,5 +53,5 @@
       })
     .otherwise('/');
   }) // END config
-    .constant('BASE_URL', 'http://192.168.254.120:8000/api');
+  .constant('BASE_URL', 'http://localhost:8000/api');
 })();
